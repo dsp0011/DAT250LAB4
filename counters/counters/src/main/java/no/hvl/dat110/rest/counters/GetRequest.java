@@ -8,23 +8,23 @@ import okhttp3.Response;
 
 public class GetRequest {
 
-	public static void main(String[] args) {
-		
-		OkHttpClient client = new OkHttpClient();
+    public static void main(String[] args) {
 
-		Request request = new Request.Builder()
-		  .url("http://localhost:8080/counters")
-		  .get()
-		  .build();
+        OkHttpClient client = new OkHttpClient();
 
-		System.out.println(request.toString());
-		
-		try (Response response = client.newCall(request).execute()) {
-		      System.out.println (response.body().string());
-		    }
-	   catch (IOException e) {
-		   e.printStackTrace();
-	   }
-	}
+        Request request = new Request.Builder()
+//		  .url("http://localhost:8080/counters")
+				.url("http://localhost:8080/todo")
+                .get()
+                .build();
+
+        System.out.println(request.toString());
+
+        try (Response response = client.newCall(request).execute()) {
+            System.out.println(response.body().string());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

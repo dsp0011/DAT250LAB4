@@ -15,13 +15,16 @@ public class PutRequest {
 	
 	public static void main(String[] args) {
 
-		Counters counters = new Counters(2,4);
-		
+//		Counters counters = new Counters(2,4);
+		Todo todo = new Todo();
+
 		OkHttpClient client = new OkHttpClient();
 
-		RequestBody body = RequestBody.create(JSON, counters.toJson());
-		
-		Request request = new Request.Builder().url("http://localhost:8080/counters").put(body).build();
+//		RequestBody body = RequestBody.create(JSON, counters.toJson());
+		RequestBody body = RequestBody.create(JSON, todo.toJson());
+
+//		Request request = new Request.Builder().url("http://localhost:8080/counters").put(body).build();
+		Request request = new Request.Builder().url("http://localhost:8080/todo").put(body).build();
 
 		System.out.println(request.toString());
 
